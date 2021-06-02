@@ -16,3 +16,16 @@ const images = [
   },
 ];
 
+const galleryRef=document.querySelector(`#gallery`);
+const allImages=[];
+
+images.forEach((image)=>{
+const imgEl=document.createElement('img');
+imgEl.src=image.url;
+imgEl.alt=image.alt;
+});
+
+galleryRef.insertAdjacentHTML("beforeend",`<li>${imgEl}</li>`);
+
+// galleryRef(...allImages);
+

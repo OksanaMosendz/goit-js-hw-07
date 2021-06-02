@@ -7,7 +7,7 @@ const ingredients = [
   'Приправы',
 ];
 
-const ulIngridientsRef=document.querySelector(`#ingredients`);
+const ulIngridientsEl=document.querySelector(`#ingredients`);
 const fragment=document.createDocumentFragment();
 
 ingredients.forEach(ingredient => {
@@ -16,4 +16,4 @@ ingredients.forEach(ingredient => {
   fragment.appendChild(itemEl);
 });
 
-ulIngridientsRef.append(fragment);
+ulIngridientsEl.append(fragment);
