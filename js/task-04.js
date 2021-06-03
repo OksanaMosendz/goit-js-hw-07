@@ -7,8 +7,8 @@
 
 const counterValue=document.querySelector('value');
 const counterDivEl=document.querySelector('#counter');
-const buttonDec=counterDivEl.firstChild('button');
-const buttonInc=counterDivEl.lastChild('button');
+const buttonDec=counterDivEl.firstElementChild('button');
+const buttonInc=counterDivEl.lastElementChild('button');
 
 buttonDec.addEvenListener('click',()=>{
 

@@ -16,23 +16,16 @@ const images = [
   },
 ];
 
-const galleryRef=document.querySelector(`#gallery`);
-// const allImages=[];
+const galleryEl=document.querySelector(`#gallery`);
 
-const allImages=images.map((image)=>{
-const imgEl=document.createElement('img');
-imgEl.src=image.url;
-imgEl.alt=image.alt;
-return imgEl;
+const allImages=images.map(image=>`<li><img src="${image.url} alt="${image.alt}"</li>`
+);
+
+galleryEl.insertAdjacentHTML("beforeend",allImages.join(''));
+
+const liEls=galleryEl.querySelectorAll('li');
+console.log (liEls);
+
+liEls.forEach((elementLi)=>{
+  elementLi.classList.add("gallery__item");
 });
-
-// allImages.forEach((image)=>{
-// `<li>${image}</li>`;
-// })
-
-// console.log(allImages);
-
-// galleryRef.insertAdjacentHTML("beforeend",`<li>${imgEl}</li>`);
-
-// galleryRef(...allImages);
-
