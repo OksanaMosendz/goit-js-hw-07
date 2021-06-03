@@ -17,15 +17,22 @@ const images = [
 ];
 
 const galleryRef=document.querySelector(`#gallery`);
-const allImages=[];
+// const allImages=[];
 
-images.forEach((image)=>{
+const allImages=images.map((image)=>{
 const imgEl=document.createElement('img');
 imgEl.src=image.url;
 imgEl.alt=image.alt;
+return imgEl;
 });
 
-galleryRef.insertAdjacentHTML("beforeend",`<li>${imgEl}</li>`);
+// allImages.forEach((image)=>{
+// `<li>${image}</li>`;
+// })
+
+// console.log(allImages);
+
+// galleryRef.insertAdjacentHTML("beforeend",`<li>${imgEl}</li>`);
 
 // galleryRef(...allImages);
 
