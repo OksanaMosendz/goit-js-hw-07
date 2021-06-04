@@ -18,14 +18,6 @@ const images = [
 
 const galleryEl=document.querySelector(`#gallery`);
 
-const allImages=images.map(image=>`<li><img src="${image.url} alt="${image.alt}"</li>`
-);
+const allImages=images.map(image=>`<li class=gallery__item><img class=gallery__img src="${image.url} alt="${image.alt}"</li>`)
 
 galleryEl.insertAdjacentHTML("beforeend",allImages.join(''));
-
-const liEls=galleryEl.querySelectorAll('li');
-console.log (liEls);
-
-liEls.forEach((elementLi)=>{
-  elementLi.classList.add("gallery__item");
-});
