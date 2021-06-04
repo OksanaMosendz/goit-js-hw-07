@@ -5,13 +5,15 @@
 // счетчика
 // - Добавь слушатели кликов на кнопки, вызовы функций и обновление интерфейса
 
-const counterValue=document.querySelector('value');
+const valueEl=document.querySelector('value');
 const counterDivEl=document.querySelector('#counter');
-const buttonDec=counterDivEl.firstElementChild('button');
-const buttonInc=counterDivEl.lastElementChild('button');
+const buttonDec=counterDivEl.firstElementChild;
+const buttonInc=counterDivEl.lastElementChild;
 
-buttonDec.addEvenListener('click',()=>{
+let counterValue=0;
 
-}
 
-)
+buttonDec.addEventListener('click',()=>console.log(counterValue-=1));
+buttonInc.addEventListener('click',()=>console.log(counterValue+=1));
+
+
