@@ -19,13 +19,11 @@
 // Для добавления стилей, используй CSS-классы `valid` и `invalid`.
 
 const input=document.querySelector('input');
-const length=input.dataset.length;
-const chekLength=()=>(
-  input.classList.toggle( 'valid', [input.value.length==input.dataset.length])
+// const goodLength=(input.value.length==input.dataset.length);
+const chekLength=()=>(input.value.length==input.dataset.length)?(input.classList.toggle('valid')):(input.classList.toggle('invalid'));
   
-  input.classList.toggle( 'valid', [input.value.length!==input.dataset.length])
-  input.value.length==input.dataset.length)?(input.classList.add('valid')&input.classList.remove('invalid')):
-(input.classList.add('invalid'));
+  // input.value.length==input.dataset.length)?(input.classList.add('valid')&input.classList.remove('invalid')):
+// (input.classList.add('invalid'));
 
 input.addEventListener('blur',chekLength);
 
