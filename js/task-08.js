@@ -24,29 +24,32 @@
 // </div>
 
 // <div id="boxes"></div>
-
+const input=document.querySelector('input');
 const divBoxes=document.querySelector('#boxes');
 const render=document.querySelector('button[data-action="render"]');
 const destroy=document.querySelector('button[data-action="destroy"]');
 
 const allDivs=[];
-const divBox=document.createElement('div');
-divBox.style.width='30px';
-divBox.style.height='30px';
-
+// const firstDivBox=document.createElement('div');
+// firstDivBox.style.width='30px';
+// firstDivBox.style.height='30px';
+// allDivs.push(firstDivBox);
+const amount=parseInt(input.value);
 
 const createBoxes=(amount)=>{
 
-for (let i= 0; i<=amount; i+=1) {
- 
-
-
+for (let i=1 ; i<=amount; i+=1) {
+  const divBox=document.createElement('div');
+  divBox.style.width='30px';
+  divBox.style.height='30px';
   allDivs.push(divBox);
 }
+console.log(allDivs);
 
-divBoxes.append(...allDivs);}
-const destroyBoxes=()=>{};
+return divBoxes.append(...allDivs);
+}
 
+const destroyBoxes=()=>divBoxes.innerHTML='';
 
 render.addEventListener('click', createBoxes);
 destroy.addEventListener('click',destroyBoxes);
