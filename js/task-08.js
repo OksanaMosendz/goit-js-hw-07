@@ -29,31 +29,37 @@ const divBoxes=document.querySelector('#boxes');
 const render=document.querySelector('button[data-action="render"]');
 const destroy=document.querySelector('button[data-action="destroy"]');
 
-const allDivs=[];
+const fragment=document.createDocumentFragment();
+let amount=Number(input.value);
+
 // const firstDivBox=document.createElement('div');
 // firstDivBox.style.width='30px';
 // firstDivBox.style.height='30px';
 // allDivs.push(firstDivBox);
-const amount=Number(input.value);
-console.log(allDivs);
-console.log(amount);
 
-const createBoxes=(amount)=>{
+// divBox.style.width=30+'px';
+  // divBox.style.height=30+'px';
+  // divBox.style.borderRadius=5+"px";
+  // for (let i=1 ; i<=amount; i+=1) {
+    
+  // const Box=document.createElement('div');
+  //   divBoxWidth+=10+"px";
+  //   divBoxheight+=10+"px";
 
-for (let i=1 ; i<=amount; i+=1) {
-  const divBox=document.createElement('div');
-  divBox.style.width='30px';
-  divBox.style.height='30px';
-  // allDivs.push(divBox);
-}
-console.log(allDivs);
+const createBoxes=()=>{
+      const firstDivBox=document.createElement('div');
+      fragment.appendChild(firstDivBox);
 
-divBoxes.append(divBox);
-}
+  for (let i=1;i=5;i+=1) {
+     const divBox=document.createElement('div');
+     fragment.appendChild(divBox);
+    }
+   divBoxes.append(fragment);
+   
+   }
+
+
 const destroyBoxes=()=>divBoxes.innerHTML='';
-
 render.addEventListener('click', createBoxes);
 destroy.addEventListener('click',destroyBoxes);
-
-
 
