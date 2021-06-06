@@ -30,7 +30,7 @@ const render=document.querySelector('button[data-action="render"]');
 const destroy=document.querySelector('button[data-action="destroy"]');
 
 const fragment=document.createDocumentFragment();
-let amount=Number(input.value);
+const amount=Number(input.value);
 
 // const firstDivBox=document.createElement('div');
 // firstDivBox.style.width='30px';
@@ -46,17 +46,17 @@ let amount=Number(input.value);
   //   divBoxWidth+=10+"px";
   //   divBoxheight+=10+"px";
 
-const createBoxes=()=>{
+const createBoxes=(amount)=>{
       const firstDivBox=document.createElement('div');
       fragment.appendChild(firstDivBox);
 
-  for (let i=1;i=5;i+=1) {
+  for (let i=1;i=amount;i+=1) {
      const divBox=document.createElement('div');
      fragment.appendChild(divBox);
     }
+
    divBoxes.append(fragment);
-   
-   }
+  }
 
 
 const destroyBoxes=()=>divBoxes.innerHTML='';
