@@ -47,25 +47,38 @@ console.log(render);
   //   divBoxheight+=10+"px";
 
 const createBoxes=(amount)=>{
-      const firstDivBox=document.createElement('div');
-      fragment.appendChild(firstDivBox);
-      firstDivBox.classList.add('first');
-
-      for(let i=2; i<=amount; i+=1){
+      if (input.value!==0&input.value!==''){
         const divBox=document.createElement('div');
-        console.log(divBox);
-      
-        fragment.appendChild(divBox);
-        console.log(fragment);
-      }
+        let width=30;
+        let height=30;
+        
+        divBox.style.width=`${width}px`;
+        divBox.style.height=`${height}px`;
+        divBox.style.backgroundColor="black";
 
-   divBoxes.append(fragment);
+        fragment.appendChild(divBox);
+
+        for(let i=1; i<=amount; i+=1){
+          const divBox=document.createElement('div');
+
+          divBox.style.backgroundColor="red";
+          width +=10;
+          height +=10;
+          divBox.style.width+=`${width}px`;
+          divBox.style.height+=`${height}px`;
+
+          fragment.appendChild(divBox);
+          input.value='';
+        }
+          divBoxes.append(fragment);
+      }
   }
 
 const destroyBoxes=()=>divBoxes.innerHTML='';
 
-render.addEventListener('click', function(){createBoxes(input.value);}, true);
+render.addEventListener('click', function(){createBoxes(input.value)});
 
 destroy.addEventListener('click',destroyBoxes);
+
 
 
