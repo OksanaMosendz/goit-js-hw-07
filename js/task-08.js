@@ -34,7 +34,9 @@ const allDivs=[];
 // firstDivBox.style.width='30px';
 // firstDivBox.style.height='30px';
 // allDivs.push(firstDivBox);
-const amount=parseInt(input.value);
+const amount=Number(input.value);
+console.log(allDivs);
+console.log(amount);
 
 const createBoxes=(amount)=>{
 
@@ -42,13 +44,12 @@ for (let i=1 ; i<=amount; i+=1) {
   const divBox=document.createElement('div');
   divBox.style.width='30px';
   divBox.style.height='30px';
-  allDivs.push(divBox);
+  // allDivs.push(divBox);
 }
 console.log(allDivs);
 
-return divBoxes.append(...allDivs);
+divBoxes.append(divBox);
 }
-
 const destroyBoxes=()=>divBoxes.innerHTML='';
 
 render.addEventListener('click', createBoxes);
