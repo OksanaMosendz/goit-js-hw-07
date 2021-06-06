@@ -30,7 +30,7 @@ const render=document.querySelector('button[data-action="render"]');
 const destroy=document.querySelector('button[data-action="destroy"]');
 
 const fragment=document.createDocumentFragment();
-
+console.log(render);
 
 // const firstDivBox=document.createElement('div');
 // firstDivBox.style.width='30px';
@@ -51,7 +51,7 @@ const createBoxes=(amount)=>{
       fragment.appendChild(firstDivBox);
       firstDivBox.classList.add('first');
 
-      for(let i=1; i<=amount; i+=1){
+      for(let i=2; i<=amount; i+=1){
         const divBox=document.createElement('div');
         console.log(divBox);
       
@@ -62,9 +62,10 @@ const createBoxes=(amount)=>{
    divBoxes.append(fragment);
   }
 
-  
 const destroyBoxes=()=>divBoxes.innerHTML='';
-render.addEventListener('click',createBoxes(6));
+
+render.addEventListener('click', function(){createBoxes(input.value);}, true);
+
 destroy.addEventListener('click',destroyBoxes);
-console.log(input.value);
+
 
