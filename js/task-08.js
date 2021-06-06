@@ -1,80 +1,45 @@
-// Напиши скрипт создания и очистки коллекции элементов. Пользователь вводит
-// количество элементов в `input` и нажимает кнопку `Создать`, после чего
-// рендерится коллекция. При нажатии на кнопку `Очистить`, коллекция элементов
-// очищается.
-
-// Создай функцию `createBoxes(amount)`, которая принимает 1 параметр `amount` -
-// число. Функция создает столько `div`, сколько указано в `amount` и добавляет их
-// в `div#boxes`.
-
-// Каждый созданный div:
-
-// - Имеет случайный rgb цвет фона
-// - Размеры самого первого div - 30px на 30px
-// - Каждый следующий div после первого, должен быть шире и выше предыдущего на
-//   10px
-
-// Создай функцию `destroyBoxes()`, которая очищает `div#boxes`.
-
-// ```html
-// <div id="controls">
-//   <input type="number" min="0" max="100" step="1" />
-//   <button type="button" data-action="render">Создать</button>
-//   <button type="button" data-action="destroy">Очистить</button>
-// </div>
-
-// <div id="boxes"></div>
 const input=document.querySelector('input');
-const divBoxes=document.querySelector('#boxes');
+const boxes=document.querySelector('#boxes');
 const render=document.querySelector('button[data-action="render"]');
 const destroy=document.querySelector('button[data-action="destroy"]');
 
 const fragment=document.createDocumentFragment();
-console.log(render);
 
-// const firstDivBox=document.createElement('div');
-// firstDivBox.style.width='30px';
-// firstDivBox.style.height='30px';
-// allDivs.push(firstDivBox);
-
-// divBox.style.width=30+'px';
-  // divBox.style.height=30+'px';
-  // divBox.style.borderRadius=5+"px";
-  // for (let i=1 ; i<=amount; i+=1) {
-    
-  // const Box=document.createElement('div');
-  //   divBoxWidth+=10+"px";
-  //   divBoxheight+=10+"px";
+const rgbRandomColor=()=>{
+  let r=Math.floor(Math.random() * (255))
+  let g=Math.floor(Math.random() * (255))
+  let b=Math.floor(Math.random() * (255))
+  return `rgb(${r},${g},${b})`;
+};
 
 const createBoxes=(amount)=>{
-      if (input.value!==0&input.value!==''){
+    if (input.value!==0&input.value!==''){
         const divBox=document.createElement('div');
         let width=30;
         let height=30;
-        
         divBox.style.width=`${width}px`;
         divBox.style.height=`${height}px`;
-        divBox.style.backgroundColor="black";
-
+        divBox.style.backgroundColor=`${rgbRandomColor()}`;
         fragment.appendChild(divBox);
 
-        for(let i=1; i<=amount; i+=1){
+        for(let i=2; i<=amount; i+=1){
           const divBox=document.createElement('div');
-
-          divBox.style.backgroundColor="red";
           width +=10;
           height +=10;
           divBox.style.width+=`${width}px`;
           divBox.style.height+=`${height}px`;
-
+          divBox.style.backgroundColor=`${rgbRandomColor()}`;
           fragment.appendChild(divBox);
-          input.value='';
         }
-          divBoxes.append(fragment);
-      }
-  }
 
-const destroyBoxes=()=>divBoxes.innerHTML='';
+      boxes.append(fragment);
+      input.value='';
+    }
+}
+
+const destroyBoxes=()=>{
+  boxes.innerHTML='';
+  input.value='';}
 
 render.addEventListener('click', function(){createBoxes(input.value)});
 
