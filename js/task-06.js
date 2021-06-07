@@ -1,12 +1,9 @@
 const input=document.querySelector('input');
 
-const chekLength=()=>{
-  if (input.value.length==input.dataset.length){
-      input.classList.add('valid');
-      input.classList.remove('invalid');}
+const changeClass=(addCl,removeCl)=>input.classList.add(addCl)&input.classList.remove(removeCl);
 
-  else {input.classList.add('invalid');
-       input.classList.remove('valid');}
-}
+const chekLength=()=>(input.value.length==input.dataset.length)?
+      changeClass('valid','invalid'):
+      changeClass('invalid','valid');
 
 input.addEventListener('blur',chekLength);
